@@ -87,6 +87,9 @@ export default {
     }
   },
   methods: {
+    /**
+     * Отправить форму на сервер
+     */
     submitForm() {
       this.errors = {};
       axios.post(`http://127.0.0.1:8000/api/feedback/save`, this.formData)
@@ -98,6 +101,10 @@ export default {
             this.handleError(err.response.data);
           })
     },
+    /**
+     * Обработать ошибки валидации
+     * @param err - Объект с ошибками валидации.
+     */
     handleError(err) {
       if (err.errors?.phone?.length > 0) {
         this.errors.phone = err.errors.phone[0]
