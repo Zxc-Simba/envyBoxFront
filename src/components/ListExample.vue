@@ -39,6 +39,25 @@
         {{ errors.feedback }}
       </div>
     </div>
+    <div>
+    <input
+        name="save-path"
+        type="radio"
+        value="file"
+        v-model="formData.saveTo"
+        checked
+    >
+    Файловое хранилище
+    </div>
+    <div>
+    <input
+        name="save-path"
+        type="radio"
+        value="database"
+        v-model="formData.saveTo"
+    >
+    База данных
+    </div>
     <div
         v-on:click="submitForm()"
     >
@@ -63,6 +82,7 @@ export default {
         name: '',
         phone: '',
         feedback: '',
+        saveTo: 'file',
       },
     }
   },
